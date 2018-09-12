@@ -4,8 +4,8 @@
     <string name="toast">1</string>
     <string name="btnLog">log</string>
     <string name="btnCustomToast">btnCustoooomToast</string>
-    <string name="description">description du texte ?</string>
-    <string name="title">Le Parrain</string>
+    <string name="description">Description</string>
+    <string name="title">titlePage</string>
     <string name="about">A propos du film</string>
     <string name="movieTitle">Titre</string>
     <string name="originalMovieTitle">Titre original</string>
