@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FirstProject</string>
+    <string name="toast">1</string>
+    <string name="btnLog">log</string>
+    <string name="btnCustomToast">btnCustoooomToast</string>
+    <string name="description">description du texte ?</string>
+    <string name="title">Le Parrain</string>
+    <string name="about">A propos du film</string>
+    <string name="movieTitle">Titre</string>
+    <string name="originalMovieTitle">Titre original</string>
+    <string name="keyWords">Mots clés</string>
+
+
+    <string name="share">Partager</string>
+    <string name="comment">Commenter</string>
+    <string name="like">Aimer</string>
+
+
+    <string name="comments">Liste de commentaires</string>
+    <string name="saySomething">Dîtes quelque chose...</string>
+
+
+
+</resources>
