@@ -18,8 +18,9 @@
     <string name="like">Like</string>
 
 
-    <string name="comments">Comment list</string>
+    <string name="comments">Comment list: </string>
     <string name="saySomething">Say something ...</string>
     <string name="the_god_father">The god father</string>
+    <string name="empty">Vide</string>
 
 </resources>

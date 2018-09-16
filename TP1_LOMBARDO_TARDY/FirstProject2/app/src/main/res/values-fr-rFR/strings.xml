@@ -16,9 +16,10 @@
     <string name="like">Aimer</string>
 
 
-    <string name="comments">Liste de commentaires</string>
+    <string name="comments">Liste de commentaires: </string>
     <string name="saySomething">Dîtes quelque chose...</string>
     <string name="the_god_father">The god father</string>
+    <string name="empty" >Vide</string>
 
 
 </resources>
