@@ -15,10 +15,36 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         >
-        <TextView android:id="@+id/text"
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight=".50"
+            android:id="@+id/backLayout"
+            android:layout_alignParentStart="true"
+            >
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight=".50"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/backTitle"
+                android:layout_below="@id/backButton"
+                android:textColor="#ffcc00"
+                />
+        </RelativeLayout>
+
+
+        <TextView android:id="@+id/text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:textStyle="bold"
             android:fontFamily="sans-serif"
             android:gravity="center"
@@ -31,10 +57,9 @@
             android:id="@+id/closeButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_weight=".50"
+            android:layout_alignParentEnd="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_cancel_black_24dp"
+            android:src="@drawable/ic_close_black_24dp"
             />
 
     </RelativeLayout>
@@ -61,6 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/imageMovie"
             android:fontFamily="sans-serif"
             android:gravity="left"
@@ -78,17 +105,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/aboutTitle"
             >
-            <TextView android:id="@+id/movieTitle"
-                android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/movieTitle"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight=".5"
-                android:layout_marginLeft="10dp"
-                android:gravity="left"
-                android:textStyle="bold"
                 android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="@string/movieTitle"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
-                android:text="@string/movieTitle"
+                android:textStyle="bold"
 
                 />
 
@@ -107,7 +136,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/originalMovieTitleLayout"
             android:orientation="horizontal"
@@ -115,17 +143,19 @@
             android:layout_height="wrap_content"
                 android:layout_below="@+id/movieTitleLayout"
             >
-            <TextView android:id="@+id/originalMovieTitle"
-                android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/originalMovieTitle"
+                android:layout_width="47dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight=".5"
-                android:layout_marginLeft="10dp"
-                android:gravity="left"
-                android:textStyle="bold"
                 android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="@string/originalMovieTitle"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
-                android:text="@string/originalMovieTitle"
+                android:textStyle="bold"
 
                 />
 
@@ -133,12 +163,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:gravity="left"
                 android:fontFamily="sans-serif"
                 android:textColor="#ffffff"
                 android:textSize="15dp"
-                android:text="The god father"
+                android:text="@string/the_god_father"
                 />
 
         </LinearLayout>
@@ -150,30 +180,66 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/originalMovieTitleLayout"
         >
-        <TextView android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        android:layout_marginLeft="10dp"
-        android:gravity="left"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif"
-        android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:text="@string/description"
 
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight=".5"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="@string/description"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView android:id="@+id/descriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                android:layout_marginStart="10dp"
+                android:gravity="left"
+                android:fontFamily="sans-serif"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                android:text="@string/descriptionText"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/keyWordsLayout"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descriptionLayout"
+        >
+        <TextView android:id="@+id/keywordsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:layout_marginStart="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:text="@string/keyWords"
         />
 
-        <TextView android:id="@+id/descriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        android:layout_marginLeft="10dp"
-        android:gravity="left"
-        android:fontFamily="sans-serif"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
-        android:text="@string/description"
+        <TextView android:id="@+id/keyWordsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:layout_marginStart="10dp"
+            android:gravity="left"
+            android:fontFamily="sans-serif"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+        android:text="@string/keyWordsText"
 
         />
 
@@ -183,88 +249,88 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/descriptionLayout">
+            android:layout_below="@+id/keyWordsLayout">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnShare"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight=".3"
                 android:drawablePadding="5dp"
-                android:drawableStart="@drawable/ic_share_black_24dp"
+                android:drawableLeft="@drawable/ic_share_black_24dp"
                 android:text="@string/share"
                 android:textSize="11sp"
                 tools:ignore="SmallSp" />
 
             <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight=".3"
-            android:drawablePadding="5dp"
-            android:drawableStart="@drawable/ic_comment_black_24dp"
-            android:text="@string/comment"
-            android:textSize="11sp"
-            tools:ignore="SmallSp"  />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight=".3"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_comment_black_24dp"
+                android:text="@string/comment"
+                android:textSize="11sp"
+                tools:ignore="SmallSp"  />
 
-            <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight=".3"
-            android:drawablePadding="5dp"
-            android:drawableStart="@drawable/ic_thumb_up_black_24dp"
-            android:text="@string/like"
-            android:textSize="11sp"
-            tools:ignore="SmallSp"  />
-            </LinearLayout>
-        </RelativeLayout>
+            <Button android:id="@+id/btnLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".3"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_thumb_up_black_24dp"
+                android:text="@string/like"
+                android:textSize="11sp"
+                tools:ignore="SmallSp"  />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/commentsLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="800dp"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_below="@id/bodyLayout"
+        android:layout_marginLeft="10dp"
         android:background="#a6a6a6">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="800dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment1"
             android:text="@string/comments"
             android:textColor="#ffffff"
-            android:gravity="center"/>
+            android:gravity="top"
+             />
+
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        >
-        <LinearLayout
+        android:background="#262626">
+
+        <EditText
+            android:id="@+id/editTextSend"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:paddingStart="10dp"
+            android:textColor="#ffcc00" />
 
-            android:background="#262626">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editTextSend"
-                android:layout_weight=".1" />
-
-            <ImageView
-                android:layout_width="fill_parent"
-                android:id="@+id/btnSend"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".9"
-                android:src="@drawable/ic_send_black_24dp" />
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/btnSend"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".8"
+            android:src="@drawable/ic_send_black_24dp" />
+    </LinearLayout>
     </RelativeLayout>
-</RelativeLayout>

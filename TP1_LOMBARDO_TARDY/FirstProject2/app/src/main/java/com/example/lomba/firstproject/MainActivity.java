@@ -3,6 +3,10 @@ package com.example.lomba.firstproject;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,22 +31,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnToast;
     private ImageView btnSend;
     private Button btnShare;
+    private Button btnLike;
     private ImageView imgViewClose;
     private EditText editText;
-    private List<String> commentsList;
+    private int indexComments;
+    private TextView tempComment;
     private RelativeLayout commentsLayout;
 
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        indexComments = 1;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imgViewClose = findViewById(R.id.closeButton);
         btnShare = findViewById(R.id.btnShare);
         btnSend = findViewById(R.id.btnSend);
+        btnLike = findViewById(R.id.btnLike);
         editText = findViewById(R.id.editTextSend);
         commentsLayout = findViewById(R.id.commentsLayout);
+        tempComment = findViewById(R.id.comment1);
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
 
@@ -66,17 +76,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 sendIt(v);
             }
         });
+
+        btnLike.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                likeIt(v);
+            }
+        });
+    }
+
+    private void likeIt(View v) {
+        Drawable drawable = getResources().getDrawable(R.drawable.ic_thumb_up_green_24dp);
+//        drawable = DrawableCompat.wrap(drawable);
+//        DrawableCompat.setTint(drawable, getResources().getColor(R.color.colorPrimary));
+        btnLike.setCompoundDrawables(drawable,null,null,null);
     }
 
     private void sendIt(View v) {
         final EditText nameField = (EditText) findViewById(R.id.editTextSend);
-        Log.d("test2", nameField.getText().toString());
+
         RelativeLayout.LayoutParams lparams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.);
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+        lparams.addRule(RelativeLayout.BELOW, tempComment.getId());
+
         TextView tv=new TextView(this);
+        tv.setId(View.generateViewId());
         tv.setLayoutParams(lparams);
-        tv.setText("test");
+        tv.setText(nameField.getText().toString());
+
         this.commentsLayout.addView(tv);
+        this.commentsLayout.removeView(findViewById(R.id.comment1));
+        this.tempComment = tv;
     }
 
     private void shareIt(View v) {

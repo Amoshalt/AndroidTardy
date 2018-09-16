@@ -2,13 +2,16 @@
     <string name="app_name">FirstProject</string>
     <string name="toast">1</string>
     <string name="log">2</string>
+    <string name="backTitle">back title</string>
     <string name="btnCustomToast">btnCustomToast</string>
     <string name="description">Description</string>
+    <string name="descriptionText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="title">titlePage</string>
     <string name="about">About this movie</string>
     <string name="movieTitle">Titre</string>
     <string name="originalMovieTitle">Titre original</string>
     <string name="keyWords">Mots clés</string>
+    <string name="keyWordsText">blablabla</string>
     <string name="titleMovie">Le Parrain</string>
 
 
@@ -19,5 +22,6 @@
 
     <string name="comments">Comment list</string>
     <string name="saySomething">Say something ...</string>
+    <string name="the_god_father">The god father</string>
 
 </resources>
