@@ -321,29 +321,32 @@
         </RelativeLayout>
     </ScrollView>
 
-
-    <RelativeLayout
-        android:id="@+id/commentsLayout"
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_above="@id/sendCommentLayout"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#a6a6a6">
+        <RelativeLayout
+            android:id="@+id/commentsLayout"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/comment1"
-            android:text="@string/comments"
-            android:textColor="#ffffff"
-            android:gravity="top"
-             />
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment1"
+                android:text="@string/comments"
+                android:textColor="#ffffff"
+                android:gravity="top"
+                 />
 
+        </RelativeLayout>
+    </ScrollView>
     <LinearLayout
         android:id="@+id/sendCommentLayout"
         android:layout_width="match_parent"

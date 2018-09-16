@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnShare;
     private Button btnLike;
     private Button btnComment;
+    private RelativeLayout backLayout;
     private ImageView imgViewClose;
     private EditText editText;
     private int indexComments;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSend = findViewById(R.id.btnSend);
         btnLike = findViewById(R.id.btnLike);
         btnComment = findViewById(R.id.btnComment);
+        backLayout = findViewById(R.id.backLayout);
+        imgViewClose = findViewById(R.id.closeButton);
         editText = findViewById(R.id.editTextSend);
         commentsLayout = findViewById(R.id.commentsLayout);
         tempComment = findViewById(R.id.comment1);
@@ -106,6 +109,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editText.clearFocus();
 
+        imgViewClose.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                closeIt(v);
+            }
+        });
+        backLayout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                closeIt(v);
+            }
+        });
+
+
+
+
+    }
+
+    private void closeIt(View v) {
+        finishAffinity();
+        System.exit(0);
     }
 
     private void focusOnIt(View v) {
@@ -145,11 +167,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
 
         lparams.addRule(RelativeLayout.BELOW, tempComment.getId());
+lparams.setMargins(2,2,2,2);
 
         TextView tv=new TextView(this);
+
         tv.setId(View.generateViewId());
         tv.setLayoutParams(lparams);
         tv.setText(nameField.getText().toString());
+        tv.setTextColor(Color.parseColor("#000000"));
 
         this.commentsLayout.addView(tv);
         this.commentsLayout.removeView(findViewById(R.id.comment1));
