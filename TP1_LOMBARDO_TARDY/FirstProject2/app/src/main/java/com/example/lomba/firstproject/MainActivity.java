@@ -1,6 +1,7 @@
 package com.example.lomba.firstproject;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -15,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView btnSend;
     private Button btnShare;
     private Button btnLike;
+    private Button btnComment;
     private ImageView imgViewClose;
     private EditText editText;
     private int indexComments;
@@ -49,9 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnShare = findViewById(R.id.btnShare);
         btnSend = findViewById(R.id.btnSend);
         btnLike = findViewById(R.id.btnLike);
+        btnComment = findViewById(R.id.btnComment);
         editText = findViewById(R.id.editTextSend);
         commentsLayout = findViewById(R.id.commentsLayout);
         tempComment = findViewById(R.id.comment1);
+
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
 
@@ -82,6 +87,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 likeIt(v);
             }
         });
+
+        btnComment.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                commentIt(v);
+            }
+        });
+
+
+    }
+
+    private void commentIt(View v) {
+        EditText editTextToFocus = findViewById(R.id.editTextSend);
+        editTextToFocus.setText("");
+        editTextToFocus.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
     }
 
     private void likeIt(View v) {
