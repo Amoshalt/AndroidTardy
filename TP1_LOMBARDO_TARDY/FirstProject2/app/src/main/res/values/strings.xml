@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">FirstProject</string>
-    <string name="toast">1</string>
-    <string name="log">2</string>
     <string name="backTitle">back title</string>
     <string name="btnCustomToast">btnCustomToast</string>
     <string name="description">Description</string>
@@ -11,7 +9,7 @@
     <string name="movieTitle">Titre</string>
     <string name="originalMovieTitle">Titre original</string>
     <string name="keyWords">Mots clés</string>
-    <string name="keyWordsText">blablabla</string>
+    <string name="keyWordsText">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
     <string name="titleMovie">Le Parrain</string>
 
 

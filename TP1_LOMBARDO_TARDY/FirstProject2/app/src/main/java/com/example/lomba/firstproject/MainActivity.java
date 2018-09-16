@@ -32,9 +32,8 @@ import android.widget.Toast;
 import java.lang.reflect.Field;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
-    private Button btnToast;
     private ImageView btnSend;
     private Button btnShare;
     private Button btnLike;
@@ -208,11 +207,6 @@ lparams.setMargins(2,2,2,2);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
-    }
-
-
-    @Override
-    public void onClick(View view) {
     }
 
 

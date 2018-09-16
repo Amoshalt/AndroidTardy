@@ -117,13 +117,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/aboutTitle"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
                 >
 
                 <TextView
                     android:id="@+id/movieTitle"
-                    android:layout_width="15dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_weight=".5"
                     android:fontFamily="sans-serif"
                     android:gravity="left"
@@ -135,10 +136,9 @@
                     />
 
                 <TextView android:id="@+id/movieTileD"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginLeft="10dp"
                     android:gravity="left"
                     android:fontFamily="sans-serif"
                     android:textColor="#ffffff"
@@ -155,13 +155,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/movieTitleLayout"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
                 >
 
                 <TextView
                     android:id="@+id/originalMovieTitle"
-                    android:layout_width="47dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_weight=".5"
                     android:fontFamily="sans-serif"
                     android:gravity="left"
@@ -173,10 +174,9 @@
                     />
 
                 <TextView android:id="@+id/originalMovieTitleD"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginStart="10dp"
                     android:gravity="left"
                     android:fontFamily="sans-serif"
                     android:textColor="#ffffff"
@@ -192,13 +192,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/originalMovieTitleLayout"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
                 >
 
                 <TextView
                     android:id="@+id/description"
-                    android:layout_width="300dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_weight=".5"
                     android:fontFamily="sans-serif"
                     android:gravity="left"
@@ -210,10 +211,9 @@
                     />
 
                 <TextView android:id="@+id/descriptionText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginStart="10dp"
                     android:gravity="left"
                     android:fontFamily="sans-serif"
                     android:textColor="#ffffff"
@@ -229,12 +229,13 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/descriptionLayout"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
                 >
                 <TextView android:id="@+id/keywordsTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginStart="10dp"
                     android:gravity="left"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif"
@@ -244,10 +245,9 @@
                     />
 
                 <TextView android:id="@+id/keyWordsText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginStart="10dp"
                     android:gravity="left"
                     android:fontFamily="sans-serif"
                     android:textColor="#ffffff"
