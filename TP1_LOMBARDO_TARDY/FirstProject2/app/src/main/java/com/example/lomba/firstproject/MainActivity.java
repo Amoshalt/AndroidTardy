@@ -187,9 +187,23 @@ lparams.setMargins(2,2,2,2);
     }
 
     private void shareIt(View v) {
+        TextView tvTitle = findViewById(R.id.movieTileD);
+        TextView tvOriginalTitle = findViewById(R.id.originalMovieTitleD);
+        TextView tvDescription = findViewById(R.id.descriptionText);
+        TextView tvKeyWords = findViewById(R.id.keyWordsText);
+
+
+        String title = tvTitle.getText().toString();
+        String originalTitle = tvOriginalTitle.getText().toString();
+        String description = tvDescription.getText().toString();
+        String keyWords = tvKeyWords.getText().toString();
+
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = "Your friend want to share this movie with you:" + "''";
+        String shareBody = "Title: " + title+ "\n"
+                + "Original title: " + originalTitle +  "\n"
+                + "Description: " + description +  "\n"
+                + "Key words: " + keyWords +  "\n";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
