@@ -1,11 +1,15 @@
 package com.example.lomba.firstproject;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -90,14 +94,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnComment.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                commentIt(v);
+                focusOnIt(v);
             }
         });
 
+        editText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                focusOnIt(v);
+            }
+        });
+
+        editText.clearFocus();
 
     }
 
-    private void commentIt(View v) {
+    private void focusOnIt(View v) {
         EditText editTextToFocus = findViewById(R.id.editTextSend);
         editTextToFocus.setText("");
         editTextToFocus.requestFocus();
@@ -107,10 +118,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void likeIt(View v) {
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_thumb_up_green_24dp);
-//        drawable = DrawableCompat.wrap(drawable);
-//        DrawableCompat.setTint(drawable, getResources().getColor(R.color.colorPrimary));
-        btnLike.setCompoundDrawables(drawable,null,null,null);
+
+        Drawable drawable = btnLike.getCompoundDrawablesRelative()[0];
+
+        if (btnLike.getDefaultFocusHighlightEnabled() == false) {
+            setTint(drawable,Color.parseColor("#04A736"));
+            btnLike.setTextColor(Color.parseColor("#04A736"));
+            btnLike.setDefaultFocusHighlightEnabled(true);
+        }else {
+            setTint(drawable,Color.parseColor("#000000"));
+            btnLike.setTextColor(Color.parseColor("#000000"));
+            btnLike.setDefaultFocusHighlightEnabled(false);
+        }
+
+
+
+        btnLike.setCompoundDrawablesRelative(drawable,null,null,null);
+
     }
 
     private void sendIt(View v) {
@@ -148,5 +172,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    public static Drawable setTint(Drawable d, int color) {
+        Drawable wrappedDrawable = DrawableCompat.wrap(d);
+        DrawableCompat.setTint(wrappedDrawable, color);
+        return wrappedDrawable;
+    }
 
 }

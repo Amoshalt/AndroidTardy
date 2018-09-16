@@ -6,12 +6,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#262626"
-
-    android:paddingLeft="10dp"
     android:paddingTop="10dp"
-    android:paddingRight="10dp"
     android:paddingBottom="10dp"
-
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     >
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/titlePageLayout"
@@ -26,6 +24,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/backLayout"
             android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
             >
 
             <ImageView
@@ -74,6 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="170dp"
+
         android:layout_below="@id/titlePageLayout"
         >
         <RelativeLayout
@@ -262,7 +262,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@+id/keyWordsLayout">
+                android:layout_below="@+id/keyWordsLayout"
+                android:layout_marginTop="10dp">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -274,7 +275,11 @@
                     android:drawableLeft="@drawable/ic_share_black_24dp"
                     android:text="@string/share"
                     android:textSize="11sp"
-                    tools:ignore="SmallSp" />
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="#ffcc00"
+                    tools:ignore="SmallSp"
+                    android:radius="10dp"/>
 
                 <Button android:id="@+id/btnComment"
                     android:layout_width="wrap_content"
@@ -285,19 +290,31 @@
                     android:drawableStart="@drawable/ic_comment_black_24dp"
                     android:text="@string/comment"
                     android:textSize="11sp"
-                    tools:ignore="SmallSp"  />
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:background="#ffcc00"
+                    tools:ignore="SmallSp"
+                    android:radius="10dp"
+                    />
 
                 <Button android:id="@+id/btnLike"
+                    android:defaultFocusHighlightEnabled="false"
+                    android:textColorHighlight="#04A736"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight=".3"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_thumb_up_black_24dp"
+                    android:drawableStart="@drawable/ic_thumb_up_black_24dp"
                     android:text="@string/like"
                     android:textSize="11sp"
-                    tools:ignore="SmallSp"  />
+                    android:background="#ffcc00"
+                    tools:ignore="SmallSp"
+                    android:radius="10dp"
+                    />
 
             </LinearLayout>
 
@@ -307,12 +324,13 @@
 
     <RelativeLayout
         android:id="@+id/commentsLayout"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_above="@id/sendCommentLayout"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#a6a6a6">
 
         <TextView
@@ -331,6 +349,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#262626">
 
         <EditText
@@ -338,7 +358,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".1"
-            android:paddingStart="10dp"
             android:textColor="#ffcc00"
             android:text="@string/saySomething"
             />
