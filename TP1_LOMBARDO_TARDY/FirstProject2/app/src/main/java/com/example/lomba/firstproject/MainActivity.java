@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView imgViewClose;
     private EditText editText;
     private int indexComments;
-    private TextView tempComment;
+    private LinearLayout tempCommentLayout;
+    private TextView tempCommentTV;
     private RelativeLayout commentsLayout;
 
 
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgViewClose = findViewById(R.id.closeButton);
         editText = findViewById(R.id.editTextSend);
         commentsLayout = findViewById(R.id.commentsLayout);
-        tempComment = findViewById(R.id.comment1);
+        tempCommentLayout = findViewById(R.id.comment1);
+        tempCommentTV = findViewById(R.id.commentTV);
 
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
@@ -163,22 +165,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final EditText nameField = (EditText) findViewById(R.id.editTextSend);
 
         RelativeLayout.LayoutParams lparams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT);
 
-        lparams.addRule(RelativeLayout.BELOW, tempComment.getId());
+        lparams.addRule(RelativeLayout.BELOW, tempCommentLayout.getId());
 lparams.setMargins(2,2,2,2);
 
-        TextView tv=new TextView(this);
+        LinearLayout ll = new LinearLayout(this);
 
-        tv.setId(View.generateViewId());
+        ll.setId(View.generateViewId());
+        ll.setLayoutParams(lparams);
+        TextView tv = new TextView(this);
         tv.setLayoutParams(lparams);
         tv.setText(nameField.getText().toString());
-        tv.setTextColor(Color.parseColor("#000000"));
-
-        this.commentsLayout.addView(tv);
+        tv.setTextColor(Color.parseColor("#ffffff"));
+        ll.addView(tv);
+        tv.setBackgroundColor(Color.parseColor("#262626"));
+        this.commentsLayout.addView(ll);
         this.commentsLayout.removeView(findViewById(R.id.comment1));
-        this.tempComment = tv;
+        this.tempCommentLayout = ll;
     }
 
     private void shareIt(View v) {
