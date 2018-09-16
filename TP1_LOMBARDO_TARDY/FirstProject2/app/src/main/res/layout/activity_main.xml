@@ -72,7 +72,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="175dp"
 
         android:layout_below="@id/titlePageLayout"
         >
@@ -331,6 +331,7 @@
         android:layout_above="@+id/sendCommentScrollView"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         android:background="#262626">
         <TextView
@@ -343,7 +344,7 @@
     <ScrollView
         android:id="@+id/sendCommentScrollView"
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_above="@id/sendCommentLayout"
         android:layout_marginLeft="10dp"
@@ -402,4 +403,4 @@
             android:layout_weight=".8"
             android:src="@drawable/ic_send_black_24dp" />
     </LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>
