@@ -1,25 +1,16 @@
 package com.example.lomba.firstproject;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,10 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.lang.reflect.Field;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout tempCommentLayout;
     private TextView tempCommentTV;
     private RelativeLayout commentsLayout;
+    private RecyclerView recyclerView;
 
 
     @SuppressLint("WrongViewCast")
@@ -61,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         backLayout = findViewById(R.id.backLayout);
         imgViewClose = findViewById(R.id.closeButton);
         editText = findViewById(R.id.editTextSend);
-        commentsLayout = findViewById(R.id.commentsLayout);
         tempCommentLayout = findViewById(R.id.comment1);
-        tempCommentTV = findViewById(R.id.commentTV);
+//        tempCommentTV = findViewById(R.id.commentTV);
+        recyclerView = findViewById(R.id.commentsLayout);
 
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
