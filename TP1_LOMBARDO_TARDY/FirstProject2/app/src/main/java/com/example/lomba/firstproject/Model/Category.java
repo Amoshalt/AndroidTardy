@@ -1,4 +1,4 @@
-package com.example.lomba.firstproject;
+package com.example.lomba.firstproject.Model;
 
 public class Category {
     private String name;

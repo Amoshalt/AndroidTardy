@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lomba.firstproject.Category;
+import com.example.lomba.firstproject.Model.Category;
 import com.example.lomba.firstproject.R;
 import com.example.lomba.firstproject.ViewHolder.CategoryViewHolder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CategoryAdpater extends RecyclerView.Adapter {
 

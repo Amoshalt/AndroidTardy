@@ -1,10 +1,14 @@
-package com.example.lomba.firstproject;
+package com.example.lomba.firstproject.Adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.lomba.firstproject.Model.Comment;
+import com.example.lomba.firstproject.ViewHolder.CommentViewHolder;
+import com.example.lomba.firstproject.R;
 
 import java.util.List;
 

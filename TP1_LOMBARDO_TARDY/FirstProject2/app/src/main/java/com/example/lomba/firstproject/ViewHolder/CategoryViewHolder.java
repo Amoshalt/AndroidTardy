@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.lomba.firstproject.Category;
+import com.example.lomba.firstproject.Model.Category;
 import com.example.lomba.firstproject.R;
 
 public class CategoryViewHolder extends RecyclerView.ViewHolder {

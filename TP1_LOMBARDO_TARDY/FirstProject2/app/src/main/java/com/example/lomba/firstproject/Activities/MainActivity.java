@@ -1,4 +1,4 @@
-package com.example.lomba.firstproject;
+package com.example.lomba.firstproject.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,6 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.example.lomba.firstproject.Adapter.CommentAdapter;
+import com.example.lomba.firstproject.Model.Comment;
+import com.example.lomba.firstproject.R;
 
 import java.util.ArrayList;
 import java.util.List;

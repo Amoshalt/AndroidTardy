@@ -1,12 +1,13 @@
-package com.example.lomba.firstproject;
+package com.example.lomba.firstproject.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.example.lomba.firstproject.Adapter.CategoryAdpater;
+import com.example.lomba.firstproject.Model.Category;
+import com.example.lomba.firstproject.R;
 
 import java.util.ArrayList;
 

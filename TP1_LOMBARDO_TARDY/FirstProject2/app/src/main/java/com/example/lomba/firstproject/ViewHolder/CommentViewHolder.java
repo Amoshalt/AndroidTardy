@@ -1,10 +1,13 @@
-package com.example.lomba.firstproject;
+package com.example.lomba.firstproject.ViewHolder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.lomba.firstproject.Model.Comment;
+import com.example.lomba.firstproject.R;
 
 public class CommentViewHolder extends RecyclerView.ViewHolder{
 
