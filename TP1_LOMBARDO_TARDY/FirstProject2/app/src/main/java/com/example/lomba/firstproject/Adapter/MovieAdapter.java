@@ -2,7 +2,6 @@ package com.example.lomba.firstproject.Adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -18,6 +17,7 @@ public class MovieAdapter extends RecyclerView.Adapter {
     private static final int SECTION_VIEW = 0;
     private static final int CONTENT_VIEW = 1;
     private List<Movie> mMovies;
+    private int nbMovies = 0;
 
     @NonNull
     @Override
@@ -38,8 +38,12 @@ public class MovieAdapter extends RecyclerView.Adapter {
 
             LetterViewHolder letterViewHolder= (LetterViewHolder) viewHolder;
             char c = mMovies.get(i).getmTitle().charAt(0);
-            Log.d("char::::" , "" + c);
-            letterViewHolder.layoutforLetter(c);
+
+            if (i == mMovies.size() -1) {
+                c = ' ';
+            }
+            letterViewHolder.layoutforLetter(c,nbMovies);
+            nbMovies = 0;
             return;
         }
 
@@ -47,6 +51,7 @@ public class MovieAdapter extends RecyclerView.Adapter {
             MoviesViewHolder moviesViewHolder = (MoviesViewHolder) viewHolder;
             moviesViewHolder.layoutforMovie(currentMovie);
         }
+        nbMovies++;
     }
 
     @Override

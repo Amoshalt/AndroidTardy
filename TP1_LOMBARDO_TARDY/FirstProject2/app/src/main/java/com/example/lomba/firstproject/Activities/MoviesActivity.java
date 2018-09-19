@@ -75,6 +75,9 @@ public class MoviesActivity extends AppCompatActivity {
                 lastHeader = header;
                 movies.get(i).setSection(true);
             }
+            if (i == movieCollection.size() - 1) {
+                movies.get(i).setSection(true);
+            }
         }
 
         return new ArrayList<>(movieCollection);

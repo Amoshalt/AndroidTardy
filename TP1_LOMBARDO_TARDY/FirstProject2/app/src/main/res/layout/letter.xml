@@ -8,16 +8,34 @@
     android:padding="10dp">
 
     <LinearLayout
-        android:id="@+id/letterLayout"
+        android:id="@+id/nbMoviesLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
         <TextView
+            android:id="@+id/nbMoviesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:textColor="#fffff0"
+            android:paddingBottom="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_below="@id/nbMoviesLayout">
+        <TextView
             android:id="@+id/letterText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A"
             android:textSize="28dp"
             android:textStyle="bold"
             android:textColor="#ffffff"
