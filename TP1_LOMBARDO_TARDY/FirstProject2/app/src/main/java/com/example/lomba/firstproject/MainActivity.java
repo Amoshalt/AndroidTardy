@@ -1,35 +1,26 @@
 package com.example.lomba.firstproject;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText;
     private int indexComments;
     private LinearLayout tempCommentLayout;
-    private TextView tempCommentTV;
+    private Comment tempComment;
     private RelativeLayout commentsLayout;
+    private RecyclerView recyclerView;
+    private List<Comment> commentList;
+    private ScrollView scrollView;
 
 
     @SuppressLint("WrongViewCast")
@@ -61,10 +55,16 @@ public class MainActivity extends AppCompatActivity {
         backLayout = findViewById(R.id.backLayout);
         imgViewClose = findViewById(R.id.closeButton);
         editText = findViewById(R.id.editTextSend);
-        commentsLayout = findViewById(R.id.commentsLayout);
         tempCommentLayout = findViewById(R.id.comment1);
-        tempCommentTV = findViewById(R.id.commentTV);
-
+        scrollView= findViewById(R.id.scrollView);
+        commentList = new ArrayList<>();
+        recyclerView = findViewById(R.id.commentsLayout);
+        CommentAdapter commentAdapter = new CommentAdapter();
+        commentAdapter.setmComments(commentList);
+        recyclerView.setAdapter(commentAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        tempComment = new Comment(null,"Pas de commentaires",0);
+        commentList.add(tempComment);
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
 
@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 getWindow().closeAllPanels();
-                    Log.i("  ocou"," coi  ");
-                    //close the page
 
             }
         });
@@ -163,26 +161,18 @@ public class MainActivity extends AppCompatActivity {
     private void sendIt(View v) {
         final EditText nameField = (EditText) findViewById(R.id.editTextSend);
 
-        RelativeLayout.LayoutParams lparams = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
+        if (commentList.contains(tempComment)) {
+            commentList.remove(tempComment);
+        }
+        this.commentList.add(new Comment("User 1",nameField.getText().toString(),0));
+        refreshData();
+    }
 
-        lparams.addRule(RelativeLayout.BELOW, tempCommentLayout.getId());
-lparams.setMargins(2,2,2,2);
+    private void refreshData() {
 
-        LinearLayout ll = new LinearLayout(this);
-
-        ll.setId(View.generateViewId());
-        ll.setLayoutParams(lparams);
-        TextView tv = new TextView(this);
-        tv.setLayoutParams(lparams);
-        tv.setText(nameField.getText().toString());
-        tv.setTextColor(Color.parseColor("#ffffff"));
-        ll.addView(tv);
-        tv.setBackgroundColor(Color.parseColor("#262626"));
-        this.commentsLayout.addView(ll);
-        this.commentsLayout.removeView(findViewById(R.id.comment1));
-        this.tempCommentLayout = ll;
+        if (this.recyclerView != null && this.recyclerView.getAdapter() != null) {
+            this.recyclerView.getAdapter().notifyDataSetChanged();
+        }
     }
 
     private void shareIt(View v) {
