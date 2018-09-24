@@ -8,13 +8,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.example.lomba.firstproject.Adapter.MovieAdapter;
+import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
 import com.example.lomba.firstproject.Manager.MovieManager;
 import com.example.lomba.firstproject.Model.Movie;
 import com.example.lomba.firstproject.R;
 
 import java.util.List;
 
-public class MoviesActivity extends AppCompatActivity {
+public class MoviesActivity extends AppCompatActivity implements IItemOnCLickManager {
 
     private RecyclerView mRecyclerView;
 
@@ -41,4 +42,8 @@ public class MoviesActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void OnClickItem(Object object) {
+
+    }
 }

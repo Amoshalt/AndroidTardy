@@ -16,6 +16,7 @@ public class Category {
     }
 
     public static Category HUMOUR = new Category("Humour");
+    public static Category TOUTES = new Category("Toutes les catégories");
     public static Category HORREUR = new Category("Horreur");
     public static Category ROMANCE = new Category("Romance");
     public static Category COMEDIE = new Category("Comédie");
@@ -30,6 +31,5 @@ public class Category {
     public static Category MANGAS = new Category("Mangas");
     public static Category ANIMATION = new Category("Animation");
     public static Category COMEDIEM = new Category("Comédie musicale");
-    public static Category TOUTES = new Category("Toutes les catégories");
 
 }
