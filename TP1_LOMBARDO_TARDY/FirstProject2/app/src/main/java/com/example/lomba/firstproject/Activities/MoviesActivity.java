@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -19,6 +20,8 @@ public class MoviesActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
 
     private RelativeLayout backLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,13 @@ public class MoviesActivity extends AppCompatActivity {
         backLayout = findViewById(R.id.backLayout);
         backLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
+        });
+
+        this.mRecyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("test","test");
+            }
         });
     }
 

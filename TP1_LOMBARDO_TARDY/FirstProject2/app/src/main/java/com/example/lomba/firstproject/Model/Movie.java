@@ -5,12 +5,13 @@ public class Movie {
     private String mTitle;
     private String mOriginalTitle;
     private String mDescription;
-    private String[] mKeyWords;
+    private String mKeyWords;
     private boolean isSection;
-
+    private int id;
     private int mMovieImageId;
 
-    public Movie(String mTitle, String mOriginalTitle, String mDescription, String[] mKeyWords, int mMovieImageId, boolean isSection) {
+    public Movie(int id, String mTitle, String mOriginalTitle, String mDescription, String mKeyWords, int mMovieImageId, boolean isSection) {
+        this.id = id;
         this.mTitle = mTitle;
         this.mOriginalTitle = mOriginalTitle;
         this.mDescription = mDescription;
@@ -51,11 +52,11 @@ public class Movie {
         this.mDescription = mDescription;
     }
 
-    public String[] getmKeyWords() {
+    public String getmKeyWords() {
         return mKeyWords;
     }
 
-    public void setmKeyWords(String[] mKeyWords) {
+    public void setmKeyWords(String mKeyWords) {
         this.mKeyWords = mKeyWords;
     }
 
@@ -65,5 +66,9 @@ public class Movie {
 
     public void setSection(boolean section) {
         isSection = section;
+    }
+
+    public int getId() {
+        return id;
     }
 }

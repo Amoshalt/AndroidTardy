@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.lomba.firstproject.Adapter.CommentAdapter;
+import com.example.lomba.firstproject.Manager.MovieManager;
 import com.example.lomba.firstproject.Model.Comment;
+import com.example.lomba.firstproject.Model.Movie;
 import com.example.lomba.firstproject.R;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView btnSend;
+    private ImageView mImage;
     private Button btnShare;
     private Button btnLike;
     private Button btnComment;
@@ -43,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Comment> commentList;
     private ScrollView scrollView;
+    private TextView mTitle;
+    private TextView mOriginalTitle;
+    private TextView mDescription;
+    private TextView mKeyWords;
 
 
     @SuppressLint("WrongViewCast")
@@ -63,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
         scrollView= findViewById(R.id.scrollView);
         commentList = new ArrayList<>();
         recyclerView = findViewById(R.id.commentsLayout);
+        mTitle = findViewById(R.id.movieTileD);
+        mOriginalTitle= findViewById(R.id.originalMovieTitleD);
+        mDescription= findViewById(R.id.descriptionText);
+        mKeyWords= findViewById(R.id.keyWordsText);
+        mImage = findViewById(R.id.imageMovie);
+
         CommentAdapter commentAdapter = new CommentAdapter();
         commentAdapter.setmComments(commentList);
         recyclerView.setAdapter(commentAdapter);
@@ -123,8 +137,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent i = getIntent();
 
+        Movie movie = MovieManager.getInstance().getMovieById(i.getIntExtra("MOVIE_ID",0));
 
+        mTitle.setText(movie.getmTitle());
+        mOriginalTitle.setText(movie.getmOriginalTitle());
+        mDescription.setText(movie.getmDescription());
+        mKeyWords.setText(movie.getmKeyWords());
+        mImage.setImageResource(R.mipmap.godfather);
 
     }
 
@@ -184,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvOriginalTitle = findViewById(R.id.originalMovieTitleD);
         TextView tvDescription = findViewById(R.id.descriptionText);
         TextView tvKeyWords = findViewById(R.id.keyWordsText);
-
+        ImageView tvImage = findViewById(R.id.imageMovie);
 
         String title = tvTitle.getText().toString();
         String originalTitle = tvOriginalTitle.getText().toString();
@@ -192,13 +213,17 @@ public class MainActivity extends AppCompatActivity {
         String keyWords = tvKeyWords.getText().toString();
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
+        sharingIntent.setType("image/jpeg");
+        sharingIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         String shareBody = "Title: " + title+ "\n"
                 + "Original title: " + originalTitle +  "\n"
                 + "Description: " + description +  "\n"
                 + "Key words: " + keyWords +  "\n";
+        Uri imageUri = Uri.parse("android.resource://" + getPackageName()
+                + "/mipmap/" + "godfather");
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
     }
