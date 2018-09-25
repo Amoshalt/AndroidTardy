@@ -11,13 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.MoviesActivity">
+        <activity android:name=".Activities.MoviesActivity"
+            android:exported="true">
 
         </activity>
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.MainActivity"
+            android:exported="true">
 
         </activity>
-        <activity android:name=".Activities.CategoriesActivity">
+        <activity android:name=".Activities.CategoriesActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
