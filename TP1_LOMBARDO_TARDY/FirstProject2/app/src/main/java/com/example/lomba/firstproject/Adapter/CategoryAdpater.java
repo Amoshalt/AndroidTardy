@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
 import com.example.lomba.firstproject.Model.Category;
 import com.example.lomba.firstproject.R;
 import com.example.lomba.firstproject.ViewHolder.CategoryViewHolder;
@@ -15,11 +16,19 @@ import java.util.ArrayList;
 public class CategoryAdpater extends RecyclerView.Adapter {
 
     private ArrayList<Category> categoriesList;
+
+    private IItemOnCLickManager mgr;
+
+    public void setClickManager(IItemOnCLickManager mgr) {
+        this.mgr = mgr;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.category, parent, false);
         CategoryViewHolder vh = new CategoryViewHolder(mView);
+        vh.setClickManager(mgr);
         return vh;
     }
 
@@ -29,6 +38,7 @@ public class CategoryAdpater extends RecyclerView.Adapter {
         if(holder instanceof CategoryViewHolder && category != null){
             CategoryViewHolder viewHolder = (CategoryViewHolder) holder;
             viewHolder.layoutForCategory(category);
+            viewHolder.setClickManager(mgr);
         }
     }
 
