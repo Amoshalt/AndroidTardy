@@ -5,12 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
 import com.example.lomba.firstproject.R;
 
 public class LetterViewHolder extends RecyclerView.ViewHolder{
 
     private TextView letterTextView;
     private TextView nbMoviesTextView;
+    private IItemOnCLickManager clickManager;
 
     public LetterViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -23,5 +25,9 @@ public class LetterViewHolder extends RecyclerView.ViewHolder{
         if (nbMovies >0) {
             this.nbMoviesTextView.setText("" + nbMovies + " movies");
         }
+    }
+
+    public void setClickManager(IItemOnCLickManager clickManager) {
+        this.clickManager = clickManager;
     }
 }

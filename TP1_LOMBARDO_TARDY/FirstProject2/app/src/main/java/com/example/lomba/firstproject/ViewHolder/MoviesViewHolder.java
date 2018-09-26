@@ -1,14 +1,13 @@
 package com.example.lomba.firstproject.ViewHolder;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lomba.firstproject.Activities.MainActivity;
+import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
+import com.example.lomba.firstproject.Manager.MovieManager;
 import com.example.lomba.firstproject.Model.Movie;
 import com.example.lomba.firstproject.R;
 
@@ -16,8 +15,14 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
 
     private TextView mTitleMovieTextView;
     private TextView mDescriptionMovieTextView;
-    private int movieId;
     private ImageView mMovieImageView;
+
+    private IItemOnCLickManager mgr;
+
+
+    public void setClickManager(IItemOnCLickManager mgr) {
+        this.mgr = mgr;
+    }
 
 
     public MoviesViewHolder(@NonNull final View itemView) {
@@ -26,18 +31,9 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
         this.mTitleMovieTextView = itemView.findViewById(R.id.movieTitle);
         this.mDescriptionMovieTextView = itemView.findViewById(R.id.movieDescription);
         this.mMovieImageView = itemView.findViewById(R.id.movieImage);
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(itemView.getContext(), MainActivity.class);
-                i.putExtra("MOVIE_ID", (int) itemView.getTag());
-                Log.d("testviewholder","" + (int) itemView.getTag() );
-                itemView.getContext().startActivity(i);
-            }
-        });
     }
 
-    public void layoutforMovie(Movie movie) {
+    public void layoutforMovie(final Movie movie) {
         if (movie != null) {
             if (mTitleMovieTextView != null) {
                 mTitleMovieTextView.setText(movie.getmTitle());
@@ -46,7 +42,13 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
                 mDescriptionMovieTextView.setText(movie.getmDescription());
             }
 
-            itemView.setTag(movie.getId());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mgr.OnClickItem(MovieManager.getInstance().getIdOfMovie(movie));
+                }
+            });
+
 //            if (mMovieImageView != null) {
 //                mMovieImageView.setImageResource(movie.getmMovieImageId());
 //            }

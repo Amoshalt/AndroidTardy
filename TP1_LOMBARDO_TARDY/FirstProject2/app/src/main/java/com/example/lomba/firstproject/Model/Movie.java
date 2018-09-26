@@ -7,11 +7,9 @@ public class Movie {
     private String mDescription;
     private String mKeyWords;
     private boolean isSection;
-    private int id;
     private int mMovieImageId;
 
-    public Movie(int id, String mTitle, String mOriginalTitle, String mDescription, String mKeyWords, int mMovieImageId, boolean isSection) {
-        this.id = id;
+    public Movie(String mTitle, String mOriginalTitle, String mDescription, String mKeyWords, int mMovieImageId, boolean isSection) {
         this.mTitle = mTitle;
         this.mOriginalTitle = mOriginalTitle;
         this.mDescription = mDescription;
@@ -68,7 +66,4 @@ public class Movie {
         isSection = section;
     }
 
-    public int getId() {
-        return id;
-    }
 }

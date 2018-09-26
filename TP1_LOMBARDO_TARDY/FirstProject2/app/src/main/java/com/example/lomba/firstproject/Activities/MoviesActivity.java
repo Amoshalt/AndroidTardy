@@ -1,10 +1,10 @@
 package com.example.lomba.firstproject.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -30,19 +30,14 @@ public class MoviesActivity extends AppCompatActivity implements IItemOnCLickMan
         MovieAdapter movieAdapter = new MovieAdapter();
         movieAdapter.setmMovies(this.setMoviesList());
         this.mRecyclerView = findViewById(R.id.movieListRecyclerView);
+
+        movieAdapter.setClickManager(this);
         this.mRecyclerView.setAdapter(movieAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         backLayout = findViewById(R.id.backLayout);
         backLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
-        });
-
-        this.mRecyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("test","test");
-            }
         });
     }
 
@@ -54,6 +49,9 @@ public class MoviesActivity extends AppCompatActivity implements IItemOnCLickMan
 
     @Override
     public void OnClickItem(Object object) {
-
+        int movieId = (int) object;
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("MOVIE_ID", movieId);
+        startActivity(i);
     }
 }

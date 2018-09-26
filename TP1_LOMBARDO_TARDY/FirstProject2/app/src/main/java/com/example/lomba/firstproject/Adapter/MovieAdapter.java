@@ -3,8 +3,10 @@ package com.example.lomba.firstproject.Adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
 import com.example.lomba.firstproject.Model.Movie;
 import com.example.lomba.firstproject.R;
 import com.example.lomba.firstproject.ViewHolder.LetterViewHolder;
@@ -19,14 +21,27 @@ public class MovieAdapter extends RecyclerView.Adapter {
     private List<Movie> mMovies;
     private int nbMovies = 0;
 
+    private IItemOnCLickManager mgr;
+
+    public void setClickManager(IItemOnCLickManager mgr) {
+        this.mgr = mgr;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
+        View mViewLetter = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.letter, viewGroup, false);
+        View mViewMovie = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.movie, viewGroup, false);
+
         if (i == SECTION_VIEW) {
-            return new LetterViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.letter, viewGroup, false));
+            LetterViewHolder vh = new LetterViewHolder(mViewLetter);
+            vh.setClickManager(mgr);
+            return vh;
         } else {
-            return new MoviesViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.movie, viewGroup, false));
+            MoviesViewHolder vh = new MoviesViewHolder(mViewMovie);
+            vh.setClickManager(mgr);
+            return vh;
         }
     }
 

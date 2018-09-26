@@ -59,16 +59,21 @@ public class MovieManager {
         }
     }
 
+    public int getIdOfMovie(Movie movie) {
+        ArrayList movieList = new ArrayList<Movie>(movieCollection);
+        return movieList.indexOf(movie);
+    }
+
     private void setMovieCollection() {
 
         for (int i = 64; i>=0; i--) {
-            movieCollection.add(new Movie(i,"Title " + i,"Original Title " + i, "Description " + i, "" + i, 1,false));
+            movieCollection.add(new Movie("Title " + i,"Original Title " + i, "Description " + i, "" + i, 1,false));
         }
-        movieCollection.add(new Movie(65,"a","b","b","" + 1, 1,false));
-        movieCollection.add(new Movie(66,"a","c","c","" + 1, 1,false));
-        movieCollection.add(new Movie(67,"a","a","a","" + 1, 1,false));
-        movieCollection.add(new Movie(68,"a","d","d","" + 1, 1,false));
-        movieCollection.add(new Movie(69,"a","e","e","" + 1, 1,false));
+        movieCollection.add(new Movie("a","b","b","" + 1, 1,false));
+        movieCollection.add(new Movie("a","c","c","" + 1, 1,false));
+        movieCollection.add(new Movie("a","a","a","" + 1, 1,false));
+        movieCollection.add(new Movie("a","d","d","" + 1, 1,false));
+        movieCollection.add(new Movie("a","e","e","" + 1, 1,false));
 
 
         String lastHeader = "";
