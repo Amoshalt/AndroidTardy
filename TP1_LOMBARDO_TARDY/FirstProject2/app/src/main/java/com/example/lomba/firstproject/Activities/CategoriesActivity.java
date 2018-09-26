@@ -1,12 +1,14 @@
 package com.example.lomba.firstproject.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.LogPrinter;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.lomba.firstproject.Adapter.CategoryAdpater;
 import com.example.lomba.firstproject.Interfaces.IItemOnCLickManager;
@@ -14,11 +16,12 @@ import com.example.lomba.firstproject.Model.Category;
 import com.example.lomba.firstproject.R;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 public class CategoriesActivity extends AppCompatActivity implements IItemOnCLickManager {
 
     private RecyclerView mRecyclerView;
+    private ImageView closeimage;
+    private RelativeLayout backLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,30 @@ public class CategoriesActivity extends AppCompatActivity implements IItemOnCLic
         setContentView(R.layout.categories);
         CategoryAdpater catAdapter = new CategoryAdpater();
         catAdapter.setCategoriesList(this.setCategoriesList());
+        this.closeimage = findViewById(R.id.closeButton);
+        this.backLayout = findViewById(R.id.backLayout);
         this.mRecyclerView = findViewById(R.id.main_recycler_view);
         catAdapter.setClickManager(this);
         this.mRecyclerView.setAdapter(catAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        closeimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeIt();
+            }
+        });
+        backLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeIt();
+            }
+        });
+
+    }
+
+    private void closeIt() {
+        finishAffinity();
+        System.exit(0);
     }
 
 

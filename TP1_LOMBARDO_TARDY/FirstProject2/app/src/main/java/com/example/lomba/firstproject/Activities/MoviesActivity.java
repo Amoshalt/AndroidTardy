@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.lomba.firstproject.Adapter.MovieAdapter;
@@ -22,6 +23,8 @@ public class MoviesActivity extends AppCompatActivity implements IItemOnCLickMan
 
     private RelativeLayout backLayout;
 
+    private ImageView imgViewClose;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +34,34 @@ public class MoviesActivity extends AppCompatActivity implements IItemOnCLickMan
         movieAdapter.setmMovies(this.setMoviesList());
         this.mRecyclerView = findViewById(R.id.movieListRecyclerView);
 
+        imgViewClose = findViewById(R.id.closeButton);
+
         movieAdapter.setClickManager(this);
         this.mRecyclerView.setAdapter(movieAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         backLayout = findViewById(R.id.backLayout);
         backLayout.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {}
+            public void onClick(View v) {
+                goBack(v);
+            }
         });
+        imgViewClose.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                closeIt(v);
+            }
+        });
+    }
+
+    private void goBack(View v) {
+        Intent i = new Intent(this, CategoriesActivity.class);
+        startActivity(i);
+    }
+
+    private void closeIt(View v) {
+
+        finishAffinity();
+        System.exit(0);
     }
 
 

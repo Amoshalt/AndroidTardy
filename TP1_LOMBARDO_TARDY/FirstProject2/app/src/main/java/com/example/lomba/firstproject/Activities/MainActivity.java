@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         btnLike = findViewById(R.id.btnLike);
         btnComment = findViewById(R.id.btnComment);
         backLayout = findViewById(R.id.backLayout);
-        imgViewClose = findViewById(R.id.closeButton);
         editText = findViewById(R.id.editTextSend);
         tempCommentLayout = findViewById(R.id.comment1);
         scrollView= findViewById(R.id.scrollView);
@@ -83,16 +82,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         tempComment = new Comment(null,"Pas de commentaires",0);
         commentList.add(tempComment);
-
-        imgViewClose.setOnClickListener(new View.OnClickListener() {
-
-            //detect a click occured on the Convert button
-            public void onClick(View v) {
-
-                getWindow().closeAllPanels();
-
-            }
-        });
 
         btnShare.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -128,12 +117,12 @@ public class MainActivity extends AppCompatActivity {
 
         imgViewClose.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                closeIt(v);
+                closeIt();
             }
         });
         backLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                closeIt(v);
+                goBack(v);
             }
         });
 
@@ -149,9 +138,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void closeIt(View v) {
+    private void closeIt() {
         finishAffinity();
         System.exit(0);
+    }
+
+    private void goBack(View v) {
+        Intent i = new Intent(this, MoviesActivity.class);
+        startActivity(i);
     }
 
     private void focusOnIt(View v) {
