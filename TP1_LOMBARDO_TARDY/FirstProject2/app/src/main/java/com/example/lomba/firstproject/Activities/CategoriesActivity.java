@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -81,13 +80,11 @@ public class CategoriesActivity extends AppCompatActivity implements IItemOnCLic
     @Override
     public void OnClickItem(Object object) {
         String catName = (String) object;
-        Log.d("test", "catName == 'TOUTES'");
-        if (catName == "TOUTES"){
-            Log.d("test2", "catName == 'TOUTES'");
+        if (catName.equals(Category.TOUTES.getName())){
+            Intent i = new Intent(this, MoviesActivity.class);
+            startActivity(i);
         }
 
-        Intent i = new Intent(this, MoviesActivity.class);
-        startActivity(i);
     }
 
 }
