@@ -11,6 +11,7 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -207,17 +208,18 @@ public class MainActivity extends AppCompatActivity {
         String keyWords = tvKeyWords.getText().toString();
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("image/jpeg");
-        sharingIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         String shareBody = "Title: " + title+ "\n"
                 + "Original title: " + originalTitle +  "\n"
                 + "Description: " + description +  "\n"
                 + "Key words: " + keyWords +  "\n";
+
         Uri imageUri = Uri.parse("android.resource://" + getPackageName()
                 + "/mipmap/" + "godfather");
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_STREAM, imageUri);
+        sharingIntent.setType("image/*");
+        sharingIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
     }
